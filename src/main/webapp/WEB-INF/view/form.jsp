@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Hello
+	<form action="create-user" method="post">
+	 <input type="text" name="id"> <br>
+	 <input type="text" name="username"> <br>
+	 <input type="password" name="password"> <br>
+	 <input type="submit" name="Create">
+	</form>
 </body>
 </html>

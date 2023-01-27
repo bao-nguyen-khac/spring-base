@@ -1,8 +1,11 @@
 package baonk.springmvcnec.configs;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -27,5 +30,18 @@ public class WebConfig implements WebMvcConfigurer {
 		bean.setSuffix(".jsp");
 
 		return bean;
+	}
+	@Bean
+	public DataSource dataSource() {
+		String url = "jdbc:postgresql://127.0.0.1:5432/nec-demo";
+		String user = "baonk";
+		String password = "password";
+		String driver = "org.postgresql.Driver";
+		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+		driverManagerDataSource.setUrl(url);
+		driverManagerDataSource.setUsername(user);
+		driverManagerDataSource.setPassword(password);
+		driverManagerDataSource.setDriverClassName(driver);
+		return driverManagerDataSource;
 	}
 }
